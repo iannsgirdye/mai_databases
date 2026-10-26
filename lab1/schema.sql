@@ -67,9 +67,9 @@ CREATE TABLE direction (
 
 CREATE TABLE program (
   program_id SERIAL PRIMARY KEY,
-  department_id INT REFERENCES department(department_id),
-  direction_id VARCHAR(8) REFERENCES direction(direction_id),
   name VARCHAR(64) NOT NULL UNIQUE
+  department_id INT NOT NULL REFERENCES department(department_id),
+  direction_id VARCHAR(8) NOT NULL REFERENCES direction(direction_id),
 );
 
 CREATE TABLE study_group(
