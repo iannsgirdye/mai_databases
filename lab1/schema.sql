@@ -1,3 +1,10 @@
+CREATE TABLE building (
+  building_id SERIAL PRIMARY KEY,
+	number SMALLINT NOT NULL,
+	address TEXT NOT NULL,
+);
+
+
 CREATE TABLE person (
 	person_id SERIAL PRIMARY KEY,
 	first_name VARCHAR(64) NOT NULL,
