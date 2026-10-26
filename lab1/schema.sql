@@ -21,5 +21,5 @@ CREATE TABLE person (
   sex VARCHAR(16) NOT NULL,
   phone_number VARCHAR(16) NOT NULL,
   email_address VARCHAR(64) NOT NULL,
-  home_address TEXT NOT NULL,
+  home_address TEXT NOT NULL
 );
