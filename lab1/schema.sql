@@ -61,7 +61,7 @@ CREATE TABLE person (
   middle_name VARCHAR(64),
   last_name VARCHAR(64) NOT NULL,
   birthday DATE NOT NULL,
-  sex VARCHAR(16) NOT NULL,
+  sex VARCHAR(8) NOT NULL CHECK (sex IN ('Мужской', 'Женский')),
   phone_number VARCHAR(16) NOT NULL UNIQUE,
   email_address VARCHAR(64) NOT NULL UNIQUE,
   home_address TEXT NOT NULL
