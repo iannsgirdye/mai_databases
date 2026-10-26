@@ -25,8 +25,8 @@ CREATE TABLE faculty (
 CREATE TABLE department (
   department_id SERIAL PRIMARY KEY,
   name VARCHAR(128) NOT NULL UNIQUE,
-  faculty_id INT NOT NULL REFERENCES faculty(faculty_id),
-  room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
+  faculty_id INT NOT NULL REFERENCES faculty(faculty_id) ON DELETE CASCADE,
+  room_id INT NOT NULL UNIQUE REFERENCES room(room_id) ON DELETE SET NULL,
   director VARCHAR(128) NOT NULL,
   temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
   phone_number VARCHAR(16) NOT NULL UNIQUE
