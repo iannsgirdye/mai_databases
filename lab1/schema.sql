@@ -74,8 +74,8 @@ CREATE TABLE program (
 
 CREATE TABLE study_group(
   study_group_id SERIAL PRIMARY KEY,
-  program_id INT REFERENCES program(program_id),
   name VARCHAR(16) NOT NULL UNIQUE,
+  program_id INT NOT NULL REFERENCES program(program_id),
   course SMALLINT NOT NULL
 );
 
