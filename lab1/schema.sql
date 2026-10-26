@@ -7,7 +7,7 @@ CREATE TABLE building (
 CREATE TABLE room (
   room_id SERIAL PRIMARY KEY,
   building_id INT REFERENCES building(building_id),
-  number SMALLINT NOT NULL,
+  number SMALLINT NOT NULL
 );
 
 --------
