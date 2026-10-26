@@ -63,7 +63,8 @@ CREATE TABLE department (
 CREATE TABLE direction ( 
   direction_id VARCHAR(8) PRIMARY KEY,
   name VARCHAR(64) NOT NULL UNIQUE,
-  type VARCHAR(64) NOT NULL
+  education_type VARCHAR(64) NOT NULL 
+    CHECK (education_type IN ('Базовое высшее образование', 'Специализированное высшее образование', 'Аспирантура'))
 );
 
 CREATE TABLE program (
