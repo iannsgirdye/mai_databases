@@ -29,3 +29,11 @@ CREATE TABLE student (
   group_id INT REFERENCES group(group_id),
   card_number VARCHAR(16) NOT NULL
 );
+
+CREATE TABLE teacher (
+  person_id INT REFERENCES person(person_id),
+  department_id INT REFERENCES department(department_id),
+  position VARCHAR(64) NOT NULL,
+  academic_degree VARCHAR(64),
+  academic_title VARCHAR(64)
+);
