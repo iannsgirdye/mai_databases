@@ -1,7 +1,7 @@
 CREATE TABLE building (
   building_id SERIAL PRIMARY KEY,
-  number SMALLINT NOT NULL,
-  address TEXT NOT NULL
+  number SMALLINT NOT NULL UNIQUE,
+  address TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE room (
