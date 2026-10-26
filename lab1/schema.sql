@@ -1,0 +1,11 @@
+CREATE TABLE person (
+	person_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(64) NOT NULL,
+	middle_name VARCHAR(64) NOT NULL,
+	last_name VARCHAR(64) NOT NULL,
+	birthday DATE NOT NULL,
+	sex VARCHAR(16) NOT NULL,
+	phone_number VARCHAR(16) NOT NULL,
+	email_address VARCHAR(64) NOT NULL,
+	home_address TEXT NOT NULL,
+);
