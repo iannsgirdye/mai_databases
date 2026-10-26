@@ -17,7 +17,7 @@ CREATE TABLE faculty (
   faculty_id SERIAL PRIMARY KEY,
   name VARCHAR(128) NOT NULL UNIQUE,
   room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
-  director VARCHAR(128) NOT NULL UNIQUE,
+  director VARCHAR(128) NOT NULL,
   temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
   phone_number VARCHAR(16) NOT NULL UNIQUE
 );
@@ -27,7 +27,7 @@ CREATE TABLE department (
   name VARCHAR(128) NOT NULL UNIQUE,
   faculty_id INT NOT NULL REFERENCES faculty(faculty_id),
   room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
-  director VARCHAR(128) NOT NULL UNIQUE,
+  director VARCHAR(128) NOT NULL,
   temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
   phone_number VARCHAR(16) NOT NULL UNIQUE
 );
