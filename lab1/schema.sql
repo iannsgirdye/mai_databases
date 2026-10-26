@@ -58,3 +58,9 @@ CREATE TABLE department (
   director INT REFERENCES teacher(teacher_id) NOT NULL,
   temporary_director BOOLEAN NOT NULL
 );
+
+CREATE TABLE direction (
+  direction_id VARCHAR(8) PRIMARY KEY,
+  name VARCHAR(64) NOT NULL UNIQUE,
+  type VARCHAR(64) NOT NULL
+);
