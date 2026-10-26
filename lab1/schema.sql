@@ -86,3 +86,10 @@ CREATE TABLE subject(
   department_id INT REFERENCES department(department_id),
   name VARCHAR(128) NOT NULL
 );
+
+CREATE TABLE subject_for_program (
+  subject_id INT REFERENCES subject(subject_id),
+  teacher_id INT REFERENCES teacher(person_id),
+  program_id INT REFERENCES program(program_id),
+  semester SMALLINT NOT NULL
+);
