@@ -23,3 +23,9 @@ CREATE TABLE person (
   email_address VARCHAR(64) NOT NULL,
   home_address TEXT NOT NULL
 );
+
+CREATE TABLE student (
+  person_id INT REFERENCES person(person_id),
+  group_id INT REFERENCES group(group_id),
+  card_number VARCHAR(16) NOT NULL
+);
