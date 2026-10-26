@@ -86,7 +86,8 @@ CREATE TABLE teacher (
 CREATE TABLE subject(
   subject_id SERIAL PRIMARY KEY,
   department_id INT NOT NULL REFERENCES department(department_id),
-  name VARCHAR(128) NOT NULL
+  name VARCHAR(128) NOT NULL,
+  UNIQUE (department_id, name)
 );
 
 CREATE TABLE subject_for_program (
