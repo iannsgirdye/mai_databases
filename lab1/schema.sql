@@ -10,7 +10,7 @@ CREATE TABLE room (
   number SMALLINT NOT NULL,
 );
 
-----------
+--------
 
 CREATE TABLE person (
   person_id SERIAL PRIMARY KEY,
@@ -36,4 +36,15 @@ CREATE TABLE teacher (
   position VARCHAR(64) NOT NULL,
   academic_degree VARCHAR(64),
   academic_title VARCHAR(64)
+);
+
+--------
+
+CREATE TABLE faculty (
+  faculty_id SERIAL PRIMARY KEY,
+  name VARCHAR(128) NOT NULL UNIQUE,
+  phone_number VARCHAR(16) NOT NULL,
+  room_id INT REFERENCES room(room_id) NOT NULL,
+  director INT REFERENCES teacher(teacher_id) NOT NULL,
+  temporary_director BOOLEAN NOT NULL
 );
