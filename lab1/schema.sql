@@ -1,9 +1,14 @@
 CREATE TABLE building (
   building_id SERIAL PRIMARY KEY,
 	number SMALLINT NOT NULL,
-	address TEXT NOT NULL,
+	address TEXT NOT NULL
 );
 
+CREATE TABLE room (
+  room_id SERIAL PRIMARY KEY,
+	building_id INT REFERENCES building(building_id),
+	number SMALLINT NOT NULL,
+);
 
 CREATE TABLE person (
 	person_id SERIAL PRIMARY KEY,
