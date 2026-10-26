@@ -6,7 +6,7 @@ CREATE TABLE building (
 
 CREATE TABLE room (
   room_id SERIAL PRIMARY KEY,
-  building_id SMALLINT REFERENCES building(building_id),
+  building_id SMALLINT NOT NULL UNIQUE REFERENCES building(building_id),
   number SMALLINT NOT NULL UNIQUE
 );
 
@@ -55,7 +55,7 @@ CREATE TABLE department (
   name VARCHAR(128) NOT NULL UNIQUE,
   phone_number VARCHAR(16) NOT NULL,
   room_id INT REFERENCES room(room_id),
-  director INT REFERENCES teacher(teacher_id) NOT NULL,
+  director INT REFERENCES teacher(teacher_id) NOT NULL UNIQUE,
   temporary_director BOOLEAN NOT NULL
 );
 
