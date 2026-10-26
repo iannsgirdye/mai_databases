@@ -6,7 +6,7 @@ CREATE TABLE building (
 
 CREATE TABLE room (
   room_id SERIAL PRIMARY KEY,
-  building_id SMALLINT NOT NULL REFERENCES building(building_id),
+  building_id SMALLINT NOT NULL REFERENCES building(building_id) ON DELETE CASCADE,
   number SMALLINT NOT NULL,
   UNIQUE (building_id, number)
 );
