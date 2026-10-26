@@ -51,12 +51,12 @@ CREATE TABLE faculty (
 
 CREATE TABLE department (
   department_id SERIAL PRIMARY KEY,
-  faculty_id INT REFERENCES faculty(faculty_id),
   name VARCHAR(128) NOT NULL UNIQUE,
+  faculty_id INT NOT NULL REFERENCES faculty(faculty_id),
+  room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
+  director INT NOT NULL UNIQUE REFERENCES teacher(teacher_id) NOT NULL UNIQUE,
+  temporary_director BOOLEAN NOT NULL,
   phone_number VARCHAR(16) NOT NULL,
-  room_id INT REFERENCES room(room_id),
-  director INT REFERENCES teacher(teacher_id) NOT NULL UNIQUE,
-  temporary_director BOOLEAN NOT NULL
 );
 
 CREATE TABLE direction (
