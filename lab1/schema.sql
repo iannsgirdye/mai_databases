@@ -91,7 +91,8 @@ CREATE TABLE subject_for_program (
   subject_id INT REFERENCES subject(subject_id),
   teacher_id INT REFERENCES teacher(person_id),
   program_id INT REFERENCES program(program_id),
-  semester SMALLINT NOT NULL
+  semester SMALLINT NOT NULL,
+  PRIMARY KEY (subject_id, program_id, semester)
 );
 
 CREATE TABLE subject_for_group (
