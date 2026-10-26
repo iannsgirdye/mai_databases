@@ -95,7 +95,7 @@ CREATE TABLE subject_for_program (
   PRIMARY KEY (subject_id, program_id, semester)
 );
 
-CREATE TABLE subject_for_group (
+CREATE TABLE subject_for_study_group (
   subject_id INT REFERENCES subject(subject_id),
   teacher_id INT REFERENCES teacher(person_id),
   study_group_id INT REFERENCES study_group(study_group_id),
