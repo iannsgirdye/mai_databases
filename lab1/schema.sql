@@ -55,7 +55,7 @@ CREATE TABLE department (
   faculty_id INT NOT NULL REFERENCES faculty(faculty_id),
   room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
   director INT NOT NULL UNIQUE REFERENCES teacher(teacher_id) NOT NULL UNIQUE,
-  temporary_director BOOLEAN NOT NULL,
+  temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
   phone_number VARCHAR(16) NOT NULL,
 );
 
