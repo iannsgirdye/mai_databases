@@ -6,8 +6,9 @@ CREATE TABLE building (
 
 CREATE TABLE room (
   room_id SERIAL PRIMARY KEY,
-  building_id SMALLINT NOT NULL UNIQUE REFERENCES building(building_id),
-  number SMALLINT NOT NULL UNIQUE
+  building_id SMALLINT NOT NULL REFERENCES building(building_id),
+  number SMALLINT NOT NULL,
+  UNIQUE (building_id, number)
 );
 
 --------
