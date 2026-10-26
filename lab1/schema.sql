@@ -90,17 +90,17 @@ CREATE TABLE subject(
 );
 
 CREATE TABLE subject_for_program (
-  subject_id INT REFERENCES subject(subject_id),
-  teacher_id INT REFERENCES teacher(person_id),
-  program_id INT REFERENCES program(program_id),
+  subject_id INT NOT NULL REFERENCES subject(subject_id),
+  teacher_id INT NOT NULL REFERENCES teacher(person_id),
+  program_id INT NOT NULL REFERENCES program(program_id),
   semester SMALLINT NOT NULL,
   PRIMARY KEY (subject_id, program_id, semester)
 );
 
 CREATE TABLE subject_for_study_group (
-  subject_id INT REFERENCES subject(subject_id),
-  teacher_id INT REFERENCES teacher(person_id),
-  study_group_id INT REFERENCES study_group(study_group_id),
+  subject_id INT NOT NULL REFERENCES subject(subject_id),
+  teacher_id INT NOT NULL REFERENCES teacher(person_id),
+  study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
   semester SMALLINT NOT NULL,
   PRIMARY KEY (subject_id, study_group_id, semester)
 );
