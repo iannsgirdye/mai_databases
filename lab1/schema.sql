@@ -99,5 +99,6 @@ CREATE TABLE subject_for_group (
   subject_id INT REFERENCES subject(subject_id),
   teacher_id INT REFERENCES teacher(person_id),
   study_group_id INT REFERENCES study_group(study_group_id),
-  semester SMALLINT NOT NULL
+  semester SMALLINT NOT NULL,
+  PRIMARY KEY (subject_id, study_group_id, semester)
 );
