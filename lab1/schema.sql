@@ -19,8 +19,8 @@ CREATE TABLE person (
   last_name VARCHAR(64) NOT NULL,
   birthday DATE NOT NULL,
   sex VARCHAR(16) NOT NULL,
-  phone_number VARCHAR(16) NOT NULL,
-  email_address VARCHAR(64) NOT NULL,
+  phone_number VARCHAR(16) NOT NULL UNIQUE,
+  email_address VARCHAR(64) NOT NULL UNIQUE,
   home_address TEXT NOT NULL
 );
 
