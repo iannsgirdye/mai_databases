@@ -1,12 +1,12 @@
 CREATE TABLE building (
-  building_id SERIAL PRIMARY KEY,
+  building_id SMALLSERIAL PRIMARY KEY,
   number SMALLINT NOT NULL UNIQUE,
   address TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE room (
   room_id SERIAL PRIMARY KEY,
-  building_id INT REFERENCES building(building_id),
+  building_id SMALLINT REFERENCES building(building_id),
   number SMALLINT NOT NULL UNIQUE
 );
 
