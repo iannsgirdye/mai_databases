@@ -26,7 +26,7 @@ CREATE TABLE person (
 
 CREATE TABLE student (
   person_id INT REFERENCES person(person_id),
-  group_id INT REFERENCES group(group_id),
+  study_group_id INT REFERENCES study_group(study_group_id),
   card_number VARCHAR(16) NOT NULL
 );
 
