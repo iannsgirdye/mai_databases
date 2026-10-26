@@ -71,3 +71,10 @@ CREATE TABLE program (
   direction_id VARCHAR(8) REFERENCES direction(direction_id),
   name VARCHAR(64) NOT NULL UNIQUE,
 );
+
+CREATE TABLE study_group(
+  study_group_id SERIAL PRIMARY KEY,
+  program_id INT REFERENCES program(program_id),
+  name VARCHAR(16) NOT NULL UNIQUE,
+  course SMALLINT NOT NULL
+);
