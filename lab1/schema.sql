@@ -78,3 +78,11 @@ CREATE TABLE study_group(
   name VARCHAR(16) NOT NULL UNIQUE,
   course SMALLINT NOT NULL
 );
+
+--------
+
+CREATE TABLE subject(
+  subject_id SERIAL PRIMARY KEY,
+  department_id INT REFERENCES department(department_id),
+  name VARCHAR(128) NOT NULL
+);
