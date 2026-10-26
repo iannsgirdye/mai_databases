@@ -48,3 +48,13 @@ CREATE TABLE faculty (
   director INT REFERENCES teacher(teacher_id) NOT NULL,
   temporary_director BOOLEAN NOT NULL
 );
+
+CREATE TABLE department (
+  department_id SERIAL PRIMARY KEY,
+  faculty_id INT REFERENCES faculty(faculty_id),
+  name VARCHAR(128) NOT NULL UNIQUE,
+  phone_number VARCHAR(16) NOT NULL,
+  room_id INT REFERENCES room(room_id),
+  director INT REFERENCES teacher(teacher_id) NOT NULL,
+  temporary_director BOOLEAN NOT NULL
+);
