@@ -85,23 +85,23 @@ CREATE TABLE teacher (
 
 CREATE TABLE subject(
   subject_id SERIAL PRIMARY KEY,
-  department_id INT NOT NULL REFERENCES department(department_id),
+  department_id INT NOT NULL REFERENCES department(department_id) ON DELETE SET NULL,
   name VARCHAR(128) NOT NULL,
   UNIQUE (department_id, name)
 );
 
 CREATE TABLE subject_for_program (
-  subject_id INT NOT NULL REFERENCES subject(subject_id),
-  teacher_id INT NOT NULL REFERENCES teacher(person_id),
-  program_id INT NOT NULL REFERENCES program(program_id),
+  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE CASCADE,
+  teacher_id INT NOT NULL REFERENCES teacher(person_id) ON DELETE SET NULL,
+  program_id INT NOT NULL REFERENCES program(program_id) ON DELETE SET NULL,
   semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 12),
   PRIMARY KEY (subject_id, program_id, semester)
 );
 
 CREATE TABLE subject_for_study_group (
-  subject_id INT NOT NULL REFERENCES subject(subject_id),
-  teacher_id INT NOT NULL REFERENCES teacher(person_id),
-  study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
+  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE CASCADE,
+  teacher_id INT NOT NULL REFERENCES teacher(person_id) ON DELETE SET NULL,
+  study_group_id INT NOT NULL REFERENCES study_group(study_group_id) ON DELETE SET NULL,
   semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 12),
   PRIMARY KEY (subject_id, study_group_id, semester)
 );
