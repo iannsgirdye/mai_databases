@@ -45,7 +45,7 @@ CREATE TABLE faculty (
   faculty_id SERIAL PRIMARY KEY,
   name VARCHAR(128) NOT NULL UNIQUE,
   room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
-  director INT NOT NULL UNIQUE REFERENCES teacher(teacher_id),
+  director INT NOT NULL UNIQUE REFERENCES teacher(person_id),
   temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
   phone_number VARCHAR(16) NOT NULL UNIQUE
 );
@@ -55,12 +55,12 @@ CREATE TABLE department (
   name VARCHAR(128) NOT NULL UNIQUE,
   faculty_id INT NOT NULL REFERENCES faculty(faculty_id),
   room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
-  director INT NOT NULL UNIQUE REFERENCES teacher(teacher_id) NOT NULL UNIQUE,
+  director INT NOT NULL UNIQUE REFERENCES teacher(person_id),
   temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
-  phone_number VARCHAR(16) NOT NULL,
+  phone_number VARCHAR(16) NOT NULL UNIQUE
 );
 
-CREATE TABLE direction (
+CREATE TABLE direction ( 
   direction_id VARCHAR(8) PRIMARY KEY,
   name VARCHAR(64) NOT NULL UNIQUE,
   type VARCHAR(64) NOT NULL
