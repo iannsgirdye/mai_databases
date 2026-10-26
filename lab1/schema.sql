@@ -68,14 +68,14 @@ CREATE TABLE person (
 );
 
 CREATE TABLE student (
-  person_id INT PRIMARY KEY REFERENCES person(person_id),
-  study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
+  person_id INT PRIMARY KEY REFERENCES person(person_id) ON DELETE CASCADE,
+  study_group_id INT NOT NULL REFERENCES study_group(study_group_id) ON DELETE SET NULL,
   card_number VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE teacher (
-  person_id INT PRIMARY KEY REFERENCES person(person_id),
-  department_id INT NOT NULL REFERENCES department(department_id),
+  person_id INT PRIMARY KEY REFERENCES person(person_id) ON DELETE CASCADE,
+  department_id INT NOT NULL REFERENCES department(department_id) ON DELETE SET NULL,
   position VARCHAR(64) NOT NULL,
   academic_degree VARCHAR(64),
   academic_title VARCHAR(64)
