@@ -93,7 +93,7 @@ CREATE TABLE subject_for_program (
   subject_id INT NOT NULL REFERENCES subject(subject_id),
   teacher_id INT NOT NULL REFERENCES teacher(person_id),
   program_id INT NOT NULL REFERENCES program(program_id),
-  semester SMALLINT NOT NULL,
+  semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 12),
   PRIMARY KEY (subject_id, program_id, semester)
 );
 
@@ -101,6 +101,6 @@ CREATE TABLE subject_for_study_group (
   subject_id INT NOT NULL REFERENCES subject(subject_id),
   teacher_id INT NOT NULL REFERENCES teacher(person_id),
   study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
-  semester SMALLINT NOT NULL,
+  semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 12),
   PRIMARY KEY (subject_id, study_group_id, semester)
 );
