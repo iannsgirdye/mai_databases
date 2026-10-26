@@ -49,7 +49,7 @@ CREATE TABLE program (
 CREATE TABLE study_group(
   study_group_id SERIAL PRIMARY KEY,
   name VARCHAR(16) NOT NULL UNIQUE,
-  program_id INT NOT NULL REFERENCES program(program_id),
+  program_id INT NOT NULL REFERENCES program(program_id) ON DELETE SET NULL,
   course SMALLINT NOT NULL CHECK (course BETWEEN 1 AND 6)
 );
 
