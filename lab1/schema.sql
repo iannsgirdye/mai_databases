@@ -83,7 +83,7 @@ CREATE TABLE study_group(
 
 CREATE TABLE subject(
   subject_id SERIAL PRIMARY KEY,
-  department_id INT REFERENCES department(department_id),
+  department_id INT NOT NULL REFERENCES department(department_id),
   name VARCHAR(128) NOT NULL
 );
 
