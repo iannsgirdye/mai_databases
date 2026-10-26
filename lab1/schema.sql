@@ -64,3 +64,10 @@ CREATE TABLE direction (
   name VARCHAR(64) NOT NULL UNIQUE,
   type VARCHAR(64) NOT NULL
 );
+
+CREATE TABLE program (
+  program_id SERIAL PRIMARY KEY,
+  department_id INT REFERENCES department(department_id),
+  direction_id VARCHAR(8) REFERENCES direction(direction_id),
+  name VARCHAR(64) NOT NULL UNIQUE,
+);
