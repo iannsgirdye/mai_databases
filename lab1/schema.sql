@@ -32,7 +32,7 @@ CREATE TABLE student (
 
 CREATE TABLE teacher (
   person_id INT PRIMARY KEY REFERENCES person(person_id),
-  department_id INT REFERENCES department(department_id),
+  department_id INT NOT NULL REFERENCES department(department_id),
   position VARCHAR(64) NOT NULL,
   academic_degree VARCHAR(64),
   academic_title VARCHAR(64)
