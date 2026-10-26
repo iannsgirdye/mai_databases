@@ -13,34 +13,6 @@ CREATE TABLE room (
 
 --------
 
-CREATE TABLE person (
-  person_id SERIAL PRIMARY KEY,
-  first_name VARCHAR(64) NOT NULL,
-  middle_name VARCHAR(64),
-  last_name VARCHAR(64) NOT NULL,
-  birthday DATE NOT NULL,
-  sex VARCHAR(16) NOT NULL,
-  phone_number VARCHAR(16) NOT NULL UNIQUE,
-  email_address VARCHAR(64) NOT NULL UNIQUE,
-  home_address TEXT NOT NULL
-);
-
-CREATE TABLE student (
-  person_id INT PRIMARY KEY REFERENCES person(person_id),
-  study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
-  card_number VARCHAR(16) NOT NULL UNIQUE
-);
-
-CREATE TABLE teacher (
-  person_id INT PRIMARY KEY REFERENCES person(person_id),
-  department_id INT NOT NULL REFERENCES department(department_id),
-  position VARCHAR(64) NOT NULL,
-  academic_degree VARCHAR(64),
-  academic_title VARCHAR(64)
-);
-
---------
-
 CREATE TABLE faculty (
   faculty_id SERIAL PRIMARY KEY,
   name VARCHAR(128) NOT NULL UNIQUE,
@@ -79,6 +51,34 @@ CREATE TABLE study_group(
   name VARCHAR(16) NOT NULL UNIQUE,
   program_id INT NOT NULL REFERENCES program(program_id),
   course SMALLINT NOT NULL
+);
+
+--------
+
+CREATE TABLE person (
+  person_id SERIAL PRIMARY KEY,
+  first_name VARCHAR(64) NOT NULL,
+  middle_name VARCHAR(64),
+  last_name VARCHAR(64) NOT NULL,
+  birthday DATE NOT NULL,
+  sex VARCHAR(16) NOT NULL,
+  phone_number VARCHAR(16) NOT NULL UNIQUE,
+  email_address VARCHAR(64) NOT NULL UNIQUE,
+  home_address TEXT NOT NULL
+);
+
+CREATE TABLE student (
+  person_id INT PRIMARY KEY REFERENCES person(person_id),
+  study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
+  card_number VARCHAR(16) NOT NULL UNIQUE
+);
+
+CREATE TABLE teacher (
+  person_id INT PRIMARY KEY REFERENCES person(person_id),
+  department_id INT NOT NULL REFERENCES department(department_id),
+  position VARCHAR(64) NOT NULL,
+  academic_degree VARCHAR(64),
+  academic_title VARCHAR(64)
 );
 
 --------
