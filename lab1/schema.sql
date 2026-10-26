@@ -16,7 +16,7 @@ CREATE TABLE room (
 CREATE TABLE person (
   person_id SERIAL PRIMARY KEY,
   first_name VARCHAR(64) NOT NULL,
-  middle_name VARCHAR(64) NOT NULL,
+  middle_name VARCHAR(64),
   last_name VARCHAR(64) NOT NULL,
   birthday DATE NOT NULL,
   sex VARCHAR(16) NOT NULL,
