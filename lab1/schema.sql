@@ -43,10 +43,10 @@ CREATE TABLE teacher (
 CREATE TABLE faculty (
   faculty_id SERIAL PRIMARY KEY,
   name VARCHAR(128) NOT NULL UNIQUE,
-  phone_number VARCHAR(16) NOT NULL UNIQUE,
-  room_id INT REFERENCES room(room_id),
-  director INT REFERENCES teacher(teacher_id),
-  temporary_director BOOLEAN NOT NULL DEFAULT FALSE
+  room_id INT NOT NULL UNIQUE REFERENCES room(room_id),
+  director INT NOT NULL UNIQUE REFERENCES teacher(teacher_id),
+  temporary_director BOOLEAN NOT NULL DEFAULT FALSE,
+  phone_number VARCHAR(16) NOT NULL UNIQUE
 );
 
 CREATE TABLE department (
