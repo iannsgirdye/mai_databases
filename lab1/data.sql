@@ -61,11 +61,10 @@ INSERT INTO subject_for_program (subject_id, program_id, teacher_id, semester) V
 (3, 3, 3, 1),
 (4, 3, 3, 3);
 
-INSERT INTO subject_for_study_group (program_subject_id, study_group_id, teacher_id) VALUES
-(1, 1, 1),
-(2, 1, 3),
-(3, 2, 1),
-(4, 3, 3),
-(5, 3, 3);
+INSERT INTO subject_for_study_group (subject_id, study_group_id, teacher_id, semester) VALUES
+(1, 1, 1, 2),
+(2, 1, 3, 1),
+(3, 2, 1, 1),
+(4, 3, 3, 3);
 
 COMMIT;
