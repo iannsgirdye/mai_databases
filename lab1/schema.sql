@@ -91,7 +91,7 @@ CREATE TABLE subject(
 );
 
 CREATE TABLE subject_for_program (
-  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE CASCADE,
+  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE RESTRICT,
   teacher_id INT NOT NULL REFERENCES teacher(person_id),
   program_id INT NOT NULL REFERENCES program(program_id),
   semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 12),
@@ -99,7 +99,7 @@ CREATE TABLE subject_for_program (
 );
 
 CREATE TABLE subject_for_study_group (
-  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE CASCADE,
+  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE RESTRICT,
   teacher_id INT NOT NULL REFERENCES teacher(person_id),
   study_group_id INT NOT NULL REFERENCES study_group(study_group_id),
   semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 12),
