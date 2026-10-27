@@ -10,7 +10,7 @@ INSERT INTO student (person_id, study_group_id, card_number)
 VALUES (9999, 1, 'ST-FAKE-001');
 
 -- 4. План группы с несуществующим program_subject_id (FK subject_for_study_group.program_subject_id)
-INSERT INTO subject_for_study_group (program_subject_id, study_group_id, teacher_id)
+INSERT INTO subject_for_study_group (subject_id, study_group_id, teacher_id)
 VALUES (9999, 1, 1);
 
 -- 5. Удалить кафедру, на которую ссылаются программы
