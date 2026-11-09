@@ -1,26 +1,28 @@
--- шаблон расписания на неделю
-CREATE TABLE schedule_template (
+CREATE TABLE lesson (
   lesson_id SERIAL PRIMARY KEY,
-  subject_id INT NOT NULL REFERENCES subject(subject_id) ON DELETE CASCADE,
-  teacher_id INT REFERENCES teacher(person_id) ON DELETE SET NULL,
+  type VARCHAR(32) NOT NULL CHECK (type IN ('Лекция', 'Практическое занятие', 'Лабораторная работа')),  
   room_id INT REFERENCES room(room_id) ON DELETE SET NULL,
-  week_start SMALLINT NOT NULL DEFAULT 1,
-  week_day SMALLINT NOT NULL CHECK (week_day BETWEEN 1 and 6),
+  date DATE NOT NULL,
   time_start TIME NOT NULL,
   time_end TIME NOT NULL,
+  status VARCHAR(16) NOT NULL DEFAULT 'Запланировано' CHECK (status IN ('Запланировано', 'Проведено', 'Отменено')),
   CHECK (time_end > time_start)
 );
 
--- соотнесение занятий потокам
-CREATE TABLE schedule_for_program (
-  schedule_item_id SERIAL PRIMARY KEY,
-  lesson_id INT NOT NULL REFERENCES schedule_template(lesson_id),
-  program_id INT NOT NULL REFERENCES program(program_id)
+CREATE TABLE lesson_for_program (
+  lesson_id INT NOT NULL REFERENCES lesson(lesson_id) ON DELETE CASCADE,
+  subject_id INT NOT NULL,
+  program_id INT NOT NULL,
+  semester SMALLINT NOT NULL,
+  PRIMARY KEY (lesson_id, subject_id, program_id, semester),
+  FOREIGN KEY (subject_id, program_id, semester) REFERENCES subject_for_program(subject_id, program_id, semester) ON DELETE CASCADE
 );
 
--- соотнесение занятий группам
-CREATE TABLE schedule_for_group (
-  schedule_item_id SERIAL PRIMARY KEY,
-  lesson_id INT NOT NULL REFERENCES schedule_template(lesson_id),
-  study_group_id INT NOT NULL REFERENCES study_group(study_group_id)
+CREATE TABLE lesson_for_group (
+  lesson_id INT NOT NULL REFERENCES lesson(lesson_id) ON DELETE CASCADE,
+  subject_id INT NOT NULL,
+  study_group_id INT NOT NULL,
+  semester SMALLINT NOT NULL,
+  PRIMARY KEY (lesson_id, subject_id, study_group_id, semester),
+  FOREIGN KEY (subject_id, study_group_id, semester) REFERENCES subject_for_study_group(subject_id, study_group_id, semester) ON DELETE CASCADE
 );
